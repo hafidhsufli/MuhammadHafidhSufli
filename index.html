@@ -1,157 +1,195 @@
 <!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Muhammad Hafidh Sufli</title>
+<head>
+<meta charset="UTF-8">
+<title>Profil MHS</title>
 
-    <link rel="stylesheet" href="style.css" />
-  </head>
+<style>
+body {
+    margin: 0;
+    font-family: "Times New Roman", serif;
+}
 
-  <script>
-    function analyzeProblem() {
-      const input = document.getElementById("problem").value.toLowerCase();
-      const result = document.getElementById("result");
-    
-      if (!input.trim()) {
-        result.innerHTML = "Silakan tulis masalah kamu terlebih dahulu.";
-        return;
-      }
-    
-      result.innerHTML = "Sedang menganalisis...";
-      
-      setTimeout(() => {
-        let score = 0;
-        let tags = [];
-    
-        const keywords = {
-          mental: ["stress", "cemas", "depresi", "lelah", "overthinking"],
-          finance: ["uang", "hutang", "ekonomi", "kerja", "gaji"],
-          social: ["sendiri", "kesepian", "hubungan", "teman"],
-        };
-    
-        for (const category in keywords) {
-          keywords[category].forEach(word => {
-            if (input.includes(word)) {
-              score += 1;
-              if (!tags.includes(category)) tags.push(category);
-            }
-          });
-        }
-    
-        let basePercent = 25 + score * 8;
-        let percent = Math.min(
-          basePercent + Math.floor(Math.random() * 6),
-          85
-        );
-    
-        const tone = ["empatik", "netral", "reflektif"][
-          Math.floor(Math.random() * 3)
-        ];
-    
-        const responses = {
-          empatik: [
-            "Apa yang kamu rasakan masuk akal.",
-            "Kamu tidak berlebihan dengan perasaan ini.",
-            "Banyak orang merasakan hal yang sama."
-          ],
-          netral: [
-            "Masalah ini cukup umum terjadi.",
-            "Situasi seperti ini sering dialami banyak orang.",
-            "Fenomena ini sering muncul dalam kehidupan modern."
-          ],
-          reflektif: [
-            "Masalah ini sering muncul saat beban hidup menumpuk.",
-            "Tekanan seperti ini jarang datang dari satu faktor saja.",
-            "Banyak orang baru menyadari ini setelah waktu berjalan."
-          ]
-        };
-    
-        const message =
-          responses[tone][Math.floor(Math.random() * responses[tone].length)];
-    
-        result.innerHTML = `
-          <strong>${percent}%</strong> orang mengalami kondisi serupa.<br>
-          <em>${message}</em><br><br>
-          <small>Kategori terdeteksi: ${tags.join(", ") || "umum"}</small><br>
-          <small>*Estimasi edukatif, bukan diagnosis*</small>
-        `;
-      }, 700);
-    }
-    </script>
-    
-  <body>
-    <header class="hero">
-      <img src="assets/foto.jpg" alt="Foto Profil" class="profile-img" />
+/* HEADER */
+.header {
+    display: flex;
+    height: 110px;
+}
 
-      <h1>MUHAMMAD HAFIDH SUFLI</h1>
-      <p class="center-text">
-        Menyediakan jasa yang berhubungan dengan dunia digital dan pembelajaran
-      </p>
-      
-      <div class="btn-group">
-        <a href="karya/index.html" class="btn primary">Lihat Karya</a>
-      </div>
-    </header>
+.header-left {
+    width: 70%;
+    background: #3b5f9b;
+}
 
-    <!-- TOMBOL WA DI SINI -->
-  <a
-  href="https://wa.me/6285322421904"
-  target="_blank"
-  class="wa-btn"
->
-  💬 Chat WhatsApp
-</a>
+.header-right {
+    width: 30%;
+    background: #8aa0c8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    <main class="container">
-      <section>
-        <h2>Tentang Saya</h2>
-        <p class="justify">
-            Saya memiliki ketertarikan besar terhadap pengembangan diri dan pembelajaran berkelanjutan. Saya menyukai Bahasa Inggris dan Bahasa Arab sebagai sarana komunikasi serta perluasan wawasan global. Selain itu, saya memiliki minat pada teknologi digital dan perkembangannya, khususnya dalam mendukung efisiensi dan inovasi di berbagai bidang. Saya juga tertarik pada dunia keuangan dan investasi, yang mendorong saya untuk terus memperdalam pemahaman serta kemampuan analitis dalam pengambilan keputusan.
-        </p>
-      </section>
+.logo-header {
+    width: 400px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-      <section>
-        <h2>Keahlian</h2>
-        <ul class="skills">
-          <li>Bahasa Inggris</li>
-          <li>Bahasa Arab</li>
-          <li>Microsoft Office</li>
-          <li>Artificial Intelligence</li>
-          <li>Bahasa & Logika Pemograman</li>
-          <li>Mengajar</li>
-        </ul>
-          
-      </section>
+/* SECTION 1 */
+.section1 {
+    display: flex;
+}
 
-      <section>
-        <h2>Pendidikan</h2>
-        <p>
-          S1 Hukum Ekonomi Syariah – UIN Ar-Raniry Banda Aceh
-        </p>
-        <p>
-            S2 Ilmu Hukum – Universitas Syiah Kuala Banda Aceh (Sedang Berjalan)
-        </p>
-      </section>
+.left-box {
+    width: 70%;
+    background: #e6e6b3;
+    padding: 30px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
 
-      <section>
-        <h2>Kontak</h2>
-        <p>Email: hafidhsufli02@gmail.com</p>
-        <p>WhatsApp: 0853 2242 1904</p>
-      </section>
-    </main>
+.foto {
+    width: 150px;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-    <footer>
-      <p class="center-text">© 2026 Muhammad Hafidh Sufli</p>
-    </footer>
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-    <script src="script.js"></script>
-  </body>
+.biodata p {
+    margin: 6px 0;
+}
 
-  <div class="problem-box">
-    <input type="text" id="problem" placeholder="Tulis masalah kamu..." />
-    <button onclick="analyzeProblem()">Analisa</button>
-  
-    <p id="result"></p>
-  </div>  
+.right-box {
+    width: 30%;
+    background: #8fa79a;
+    padding: 30px;
+    text-align: center;
+}
+
+.right-box p {
+    margin: 10px 0;
+}
+
+/* SECTION 2 */
+.section2 {
+    background: #b8bec9;
+    padding: 25px 40px;
+}
+
+.pendidikan-item {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.logo-kampus {
+    width: 70px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.logo-kampus img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* SECTION 3 */
+.section3 {
+    background: #a8c5b4;
+    padding: 25px 40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div class="header-left"></div>
+
+    <div class="header-right">
+        <div class="logo-header">
+            <!-- LOGO HEADER -->
+            <img src="logo.png" alt="Logo" style="width:100%; height:100%; object-fit:contain;">
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section1">
+
+    <div class="left-box">
+        <div class="foto">
+            <!-- FOTO -->
+            <img src="foto.jpg" alt="Foto">
+        </div>
+
+        <div class="biodata">
+            <p>NAMA : MUHAMMAD HAFIDH SUFLI</p>
+            <p>USIA : 23</p>
+            <p>PEKERJAAN : MAHASISWA</p>
+            <p>WA/HP : 0853 2242 1904</p>
+        </div>
+    </div>
+
+    <div class="right-box">
+        <p>BAHASA INGGRIS</p>
+        <p>MICROSOFT OFFICE</p>
+        <p>BAHASA & LOGIKA</p>
+        <p>PEMOGRAMAN</p>
+        <p>ARTIFICIAL INTELLIGENCE (AI)</p>
+        <p>MENGAJAR</p>
+    </div>
+
+</div>
+
+<!-- SECTION 2 -->
+<div class="section2">
+    <p><b>PENDIDIKAN</b></p>
+
+    <div class="pendidikan-item">
+        <div class="logo-kampus">
+            <img src="uin.png">
+        </div>
+        <span>(S1) UNIVERSITAS ISLAM NEGERI AR-RANIRY - BANDA ACEH - INDONESIA</span>
+    </div>
+
+    <div class="pendidikan-item">
+        <div class="logo-kampus">
+            <img src="usk.png">
+        </div>
+        <span>(S2) UNIVERSITAS SYIAH KUALA - BANDA ACEH - INDONESIA</span>
+    </div>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section3">
+    <p><b></b></p>
+
+    <p>
+        HALAL MANAGEMENT OF THE PLTD APUNG TSUNAMI PARK OF ACEH, INDONESIA
+        A LEGAL ANALYSIS :
+        <a href="https://jurista-journal.org/index.php/jurista/article/view/189" target="_blank">
+            https://jurista-journal.org/index.php/jurista/article/view/189
+        </a>
+    </p>
+
+</div>
+
+</body>
 </html>
