@@ -1,1 +1,0 @@
-console.log('CV website siap!');
